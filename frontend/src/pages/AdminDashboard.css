@@ -1,0 +1,1148 @@
+/* .admin-app {
+  --admin-ink: #253943;
+  --admin-muted: #687780;
+  --admin-line: #e7e1d7;
+  --admin-bg: #f8f6f1;
+  --admin-brand: #18394f;
+  --admin-accent: #b98a4e;
+  display: grid;
+  grid-template-columns: 246px minmax(0, 1fr);
+  height: 100vh;
+  overflow: hidden;
+  color: var(--admin-ink);
+  background: var(--admin-bg);
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+}
+.admin-sidebar { display: flex; flex-direction: column; height: 100%; overflow-y: auto; padding: 25px 15px 18px; color: #d5dce8; background: #18394f; }
+.admin-brand { display: flex; align-items: center; gap: 11px; padding: 2px 8px 29px; color: white; }
+.admin-brand .brand-mark { display: grid; place-items: center; width: 37px; height: 37px; border-radius: 12px; color: white; background: var(--admin-accent); font-family: Georgia, serif; font-size: 22px; }
+.admin-brand strong, .admin-brand small, .sidebar-user strong, .sidebar-user small { display: block; }
+.admin-brand strong { font-size: 16px; letter-spacing: .2px; }
+.admin-brand small { margin-top: 3px; color: #8795a9; font-size: 9px; font-weight: 700; letter-spacing: 1.25px; }
+.sidebar-caption { margin: 2px 10px 11px; color: #7c899b; font-size: 9px; font-weight: 800; letter-spacing: 1.45px; }
+.admin-sidebar nav { display: grid; gap: 4px; }
+.admin-sidebar nav button { display: flex; align-items: center; gap: 12px; width: 100%; padding: 11px 12px; border-radius: 8px; color: #aeb9c9; background: transparent; text-align: left; font-size: 12px; font-weight: 600; }
+.admin-sidebar nav button:hover, .admin-sidebar nav button.active { color: white; background: #2d3b50; }
+.admin-sidebar nav button.active { box-shadow: inset 3px 0 var(--admin-accent); }
+.admin-sidebar nav button b { display: grid; place-items: center; min-width: 19px; height: 19px; margin-left: auto; border-radius: 10px; color: white; background: #db6e61; font-size: 10px; }
+.sidebar-user { display: flex; align-items: center; gap: 9px; margin-top: auto; padding: 16px 4px 0; border-top: 1px solid #344052; }
+.user-avatar { display: grid; flex: 0 0 31px; place-items: center; height: 31px; border-radius: 50%; color: #dce8ff; background: #405d8c; font-size: 12px; font-weight: 700; }
+.sidebar-user div { min-width: 0; flex: 1; }
+.sidebar-user strong { overflow: hidden; color: white; font-size: 11px; text-overflow: ellipsis; white-space: nowrap; }
+.sidebar-user small { overflow: hidden; margin-top: 3px; color: #8795a9; font-size: 9px; text-overflow: ellipsis; white-space: nowrap; }
+.sidebar-user button { display: grid; place-items: center; padding: 6px; color: #aeb9c9; background: transparent; }
+.admin-main { display: flex; flex-direction: column; height: 100%; min-width: 0; overflow: hidden; }
+.admin-topbar { display: flex; flex-shrink: 0; align-items: center; justify-content: space-between; gap: 18px; min-height: 82px; padding: 16px clamp(20px, 3.5vw, 46px); border-bottom: 1px solid var(--admin-line); background: white; }
+.admin-topbar p { margin: 0 0 5px; color: #95a0b0; font-size: 9px; font-weight: 800; letter-spacing: 1.15px; }
+.admin-topbar h1 { margin: 0; color: #253247; font-size: 21px; font-weight: 700; }
+.admin-top-actions { display: flex; align-items: center; gap: 17px; }
+.booking-notification-wrap { position: relative; }
+.booking-notification-button { position: relative; display: grid; place-items: center; width: 36px; height: 36px; padding: 0; border: 1px solid var(--admin-line); border-radius: 8px; color: #53667d; background: #fff; }
+.booking-notification-button:hover { color: var(--admin-brand); background: #f7f8fa; }
+.booking-notification-button b { position: absolute; top: -6px; right: -7px; display: grid; place-items: center; min-width: 17px; height: 17px; padding: 0 4px; border: 2px solid #fff; border-radius: 12px; color: #fff; background: #bf6c5f; font-size: 8px; }
+.booking-notification-popover { position: absolute; z-index: 100; top: calc(100% + 12px); right: -42px; width: min(350px, calc(100vw - 26px)); overflow: hidden; border: 1px solid var(--admin-line); border-radius: 10px; background: #fff; box-shadow: 0 15px 40px #1a2f4a1c; }
+.notification-popover-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 15px; border-bottom: 1px solid #edf0f3; }
+.notification-popover-heading strong, .notification-popover-heading small { display: block; }
+.notification-popover-heading strong { color: #344158; font-size: 12px; }
+.notification-popover-heading small { margin-top: 3px; color: #8a96a5; font-size: 9px; }
+.notification-popover-heading>button { display: grid; place-items: center; width: 27px; height: 27px; padding: 0; border-radius: 50%; color: #7f8b99; background: #f4f5f6; }
+.notification-list { max-height: 300px; overflow: auto; }
+.notification-list article { display: flex; align-items: flex-start; gap: 10px; padding: 12px 15px; border-bottom: 1px solid #f0f2f5; }
+.notification-dot { width: 7px; height: 7px; flex: 0 0 7px; margin-top: 5px; border-radius: 50%; background: #b98a4e; }
+.notification-list article strong, .notification-list article small { display: block; }
+.notification-list article strong { color: #3d4b60; font-size: 10px; }
+.notification-list article small { margin-top: 4px; color: #8995a3; font-size: 9px; line-height: 1.45; }
+.notification-empty { padding: 18px; color: #8a96a5; font-size: 10px; text-align: center; }
+.notification-view-all { width: 100%; padding: 12px; border-top: 1px solid #edf0f3; color: #315d70; background: #fbfcfd; font-size: 10px; font-weight: 700; }
+.admin-today { display: inline-flex; align-items: center; gap: 7px; color: #647187; font-size: 11px; }
+.refresh-button { display: inline-flex; align-items: center; gap: 7px; padding: 9px 12px; border: 1px solid var(--admin-line); border-radius: 8px; color: #516078; background: white; font-size: 11px; }
+.refresh-button:disabled { opacity: .6; }
+.admin-content { flex: 1; min-height: 0; overflow-y: auto; display: grid; gap: 20px; padding: 25px clamp(18px, 3.5vw, 46px) 42px; }
+.admin-welcome { display: flex; align-items: center; justify-content: space-between; min-height: 126px; padding: 21px 27px; border: 1px solid #e7e1d7; border-radius: 13px; background: linear-gradient(105deg, #f1ede4, #faf9f6 68%, #fff); }
+.admin-welcome > div:first-child > span, .panel-heading > div > span { color: #8b9bb3; font-size: 9px; font-weight: 800; letter-spacing: 1.2px; }
+.admin-welcome h2 { margin: 8px 0 4px; color: #253653; font-size: 21px; }
+.admin-welcome p { margin: 0; color: #7e8ca2; font-size: 11px; }
+.occupancy-ring { display: grid; place-items: center; width: 82px; height: 82px; border-radius: 50%; background: conic-gradient(var(--admin-accent) var(--occupancy), #e7e1d7 0); }
+.occupancy-ring > div { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 65px; height: 65px; border-radius: 50%; background: #f7faff; }
+.occupancy-ring strong { color: #304e84; font-size: 17px; }
+.occupancy-ring small { margin-top: 2px; color: #8b9bb3; font-size: 7px; font-weight: 800; letter-spacing: .6px; }
+.metrics-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
+.admin-metric { min-width: 0; padding: 14px 15px 13px; border: 1px solid var(--admin-line); border-radius: 11px; background: white; box-shadow: 0 2px 8px #1a2f4a05; }
+.metric-top { display: flex; align-items: center; justify-content: space-between; gap: 7px; color: #78869a; font-size: 10px; font-weight: 600; }
+.metric-icon { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 8px; }
+.admin-metric strong { display: block; overflow: hidden; margin-top: 11px; color: #253247; font-size: clamp(18px, 1.7vw, 23px); font-weight: 750; text-overflow: ellipsis; white-space: nowrap; }
+.admin-metric small { display: block; margin-top: 3px; color: #98a3b2; font-size: 9px; }
+.metric-blue .metric-icon { color: #315d70; background: #eaf0f2; }.metric-green .metric-icon { color: #2f8a69; background: #e9f5ef; }.metric-violet .metric-icon { color: #18394f; background: #eaf0f2; }.metric-amber .metric-icon { color: #a7793d; background: #f7f0e4; }.metric-rose .metric-icon { color: #bd6961; background: #fff0ed; }
+.admin-chart-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 16px; }
+.admin-panel { min-width: 0; padding: 18px 19px 16px; border: 1px solid var(--admin-line); border-radius: 12px; background: white; }
+.panel-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.panel-heading h3 { margin: 5px 0 0; color: #2b374b; font-size: 14px; }
+.panel-heading > small { margin-top: 5px; color: #9aa5b4; font-size: 9px; }
+.chart-wrap { margin-top: 12px; }
+.line-chart { display: block; width: 100%; height: 176px; overflow: visible; }
+.chart-gridline { stroke: #edf0f5; stroke-width: 1; }
+.chart-area { fill: #e8eef0; opacity: .85; }
+.chart-line { fill: none; stroke: #18394f; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.chart-point { fill: white; stroke: #b98a4e; stroke-width: 2.5; }
+.chart-x-labels { display: flex; justify-content: space-between; padding: 3px 7px 0; color: #98a3b2; font-size: 8px; }
+.chart-legend { display: flex; align-items: center; gap: 5px; color: #8995a6; font-size: 8px; white-space: nowrap; }
+.chart-legend i { width: 7px; height: 7px; margin-left: 4px; border-radius: 2px; }
+.booking-chart { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); align-items: end; gap: 8px; height: 194px; padding: 18px 2px 0; }
+.booking-chart-month { display: flex; height: 100%; flex-direction: column; align-items: center; justify-content: flex-end; gap: 8px; }
+.booking-bars { display: flex; align-items: flex-end; justify-content: center; gap: 2px; width: 100%; height: 100%; border-bottom: 1px solid #edf0f5; }
+.booking-bars i { width: min(8px, 27%); min-height: 2px; border-radius: 3px 3px 0 0; }
+.bar-booked { background: #315d70; }.bar-completed { background: #67a88a; }.bar-cancelled { background: #d38a7e; }
+.booking-chart-month small { color: #98a3b2; font-size: 8px; }
+.recent-panel { padding-bottom: 0; }
+.text-action { display: inline-flex; align-items: center; gap: 4px; padding: 4px; color: #5275c3; background: transparent; font-size: 10px; }
+.section-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+.section-toolbar h2 { margin: 0; color: #263349; font-size: 19px; }
+.section-toolbar p { margin: 6px 0 0; color: #8491a3; font-size: 11px; }
+.primary-action { display: inline-flex; align-items: center; gap: 7px; padding: 10px 14px; border-radius: 8px; color: white; background: var(--admin-brand); font-size: 11px; font-weight: 650; }
+.primary-action:hover { background: #345fb9; }
+.count-chip { padding: 8px 11px; border-radius: 20px; color: #586b88; background: #edf2fa; font-size: 10px; font-weight: 650; }
+.table-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 14px; }
+.table-toolbar label { display: flex; align-items: center; gap: 8px; width: min(330px, 100%); padding: 9px 11px; border: 1px solid var(--admin-line); border-radius: 8px; color: #92a0b0; background: white; }
+.table-toolbar input { width: 100%; border: 0; outline: 0; color: #344158; background: transparent; font-size: 11px; }
+.table-toolbar > span { color: #8c98a8; font-size: 10px; }
+.admin-table-wrap { overflow-x: auto; border: 1px solid var(--admin-line); border-radius: 10px; background: white; }
+.admin-data-table { width: 100%; border-collapse: collapse; text-align: left; white-space: nowrap; }
+.admin-data-table th { padding: 12px 15px; border-bottom: 1px solid var(--admin-line); color: #93a0b1; background: #fbfcfe; font-size: 9px; font-weight: 750; letter-spacing: .55px; text-transform: uppercase; }
+.admin-data-table td { padding: 12px 15px; border-bottom: 1px solid #f0f2f6; color: #5d6a7e; font-size: 10px; }
+.admin-data-table tr:last-child td { border-bottom: 0; }.admin-data-table tbody tr:hover { background: #fbfcff; }
+.table-empty { padding: 38px 15px !important; color: #94a0af !important; text-align: center; }
+.property-cell strong, .property-cell small { display: block; max-width: 260px; overflow: hidden; text-overflow: ellipsis; }
+.property-cell strong { color: #354259; font-size: 10px; }.property-cell small { margin-top: 4px; color: #98a3b2; font-size: 9px; }
+.table-actions { display: flex; gap: 5px; }
+.icon-action { padding: 6px 8px; border: 1px solid #e6ebf3; border-radius: 6px; color: #5573ad; background: white; font-size: 9px; }
+.icon-action.danger { color: #c56a6a; }
+.status-pill { display: inline-flex; padding: 4px 7px; border-radius: 20px; color: #5d789f; background: #eff4fa; font-size: 9px; text-transform: capitalize; }
+.status-booked { color: #347f6c; background: #e9f7f2; }.status-cancelled { color: #bd6c6b; background: #fff0ef; }.status-completed { color: #6177ac; background: #eef1fb; }
+.status-confirmed { color: #347f6c; background: #e9f7f2; }.status-pending { color: #a66a10; background: #fff5df; }.status-checked-in { color: #315fbd; background: #edf3ff; }.status-checked-out { color: #6177ac; background: #eef1fb; }.status-rejected { color: #bd6c6b; background: #fff0ef; }.status-no-show { color: #7154b7; background: #f2edff; }
+.admin-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 14px; }.admin-form-grid .admin-form-wide { grid-column: 1 / -1; }
+.modal-content { max-height: min(88vh, 820px); overflow-y: auto; border: 1px solid #e6ebf2; color: #354259; background: #fff; }
+.admin-form label { color: #66758a; font-size: 10px; font-weight: 650; }
+.admin-form input, .admin-form textarea, .admin-form select { box-sizing: border-box; display: block; width: 100%; margin-top: 6px; padding: 10px 11px; border: 1px solid #e2e8f0; border-radius: 7px; outline: 0; color: #344158; background: white; font: inherit; font-size: 11px; }
+.admin-form input:focus, .admin-form textarea:focus, .admin-form select:focus { border-color: #7193df; box-shadow: 0 0 0 3px #517bd51a; }
+.admin-form textarea { resize: vertical; }.admin-form-error { grid-column: 1 / -1; margin: 0; color: #c25f5f; font-size: 11px; }.admin-form-hint { color: #8c98a8; font-size: 10px; }
+.admin-form .modal-actions { display: flex; justify-content: flex-end; gap: 8px; }.admin-form .modal-actions button { padding: 9px 13px; border-radius: 7px; font-size: 10px; }.admin-form .modal-actions .admin-secondary { color: #66758a; background: #eff2f6; }
+.admin-amenity-options { display: flex; flex-wrap: wrap; gap: 10px; padding: 12px; border: 1px solid #e7ebf2; border-radius: 8px; }.admin-amenity-options legend { padding: 0 5px; color: #718095; font-size: 10px; }.admin-form .admin-amenity-options label { display: flex; align-items: center; gap: 5px; font-weight: 500; }.admin-form .admin-amenity-options input { width: auto; margin: 0; }
+.room-category-create { margin-top: -4px; }.room-inline-link { padding: 0; color: #5275c3; background: transparent; font-size: 10px; }.room-category-entry { display: flex; align-items: center; gap: 7px; }.admin-form .room-category-entry input { flex: 1; }.room-category-entry button { flex: 0 0 auto; padding: 8px 10px; font-size: 10px; }.room-image-preview { position: relative; overflow: hidden; max-height: 170px; border-radius: 8px; background: #eef2f6; }.room-image-preview img { display: block; width: 100%; max-height: 170px; object-fit: cover; }.room-image-preview span { position: absolute; right: 8px; bottom: 8px; padding: 4px 7px; border-radius: 10px; color: white; background: #17212fcc; font-size: 9px; }
+.room-form { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 14px; }.room-form > label { min-width: 0; }.room-form-wide { grid-column: 1 / -1; }.room-create-control { min-height: 24px; display: flex; align-items: center; }.room-form .admin-amenity-options { align-items: center; }.room-form .room-packages { padding: 13px; border: 1px solid #e7ebf2; border-radius: 9px; }.room-packages-heading, .room-package-heading { display: flex; align-items: center; justify-content: space-between; gap: 10px; }.room-packages-heading strong, .room-package-heading strong { color: #485970; font-size: 11px; }.room-packages-heading p { margin: 4px 0 10px; color: #8b97a6; font-size: 9px; }.room-package-card { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 10px; margin: 10px 0 0; padding: 11px; border: 1px solid #edf0f4; border-radius: 8px; }.room-package-heading, .room-package-card > label:nth-child(4), .package-inclusions { grid-column: 1 / -1; }.room-package-card > label { color: #718095; font-size: 9px; }.room-remove-package { color: #b55e64; }.package-inclusions { display: flex; flex-wrap: wrap; gap: 8px; padding-top: 4px; color: #748196; font-size: 9px; }.package-inclusions > span { flex-basis: 100%; font-weight: 700; }.admin-form .package-inclusions label { display: flex; align-items: center; gap: 4px; font-weight: 500; }.admin-form .package-inclusions input { width: auto; margin: 0; }.package-inclusions small { color: #97a2b0; }
+.spin { animation: admin-spin .8s linear infinite; }@keyframes admin-spin { to { transform: rotate(360deg); } }
+@media (max-width: 1100px) { .metrics-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }.admin-chart-grid { grid-template-columns: 1fr; } }
+@media (max-width: 760px) { .admin-app { grid-template-columns: 1fr; height: auto; min-height: 100vh; overflow: visible; }.admin-sidebar { height: auto; min-height: 0; overflow: visible; padding: 14px; }.admin-brand { padding: 0 3px 13px; }.sidebar-caption, .sidebar-user { display: none; }.admin-sidebar nav { display: flex; overflow-x: auto; gap: 5px; }.admin-sidebar nav button { width: auto; flex: 0 0 auto; padding: 9px 10px; font-size: 10px; }.admin-sidebar nav button.active { box-shadow: inset 0 -2px var(--admin-accent); }.admin-topbar { min-height: 68px; padding: 13px 17px; }.admin-topbar h1 { font-size: 18px; }.admin-main { height: auto; overflow: visible; }.admin-content { overflow: visible; padding: 18px 14px 30px; gap: 15px; }.metrics-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }.admin-metric { padding: 12px; }.metric-top { font-size: 9px; }.metric-icon { width: 25px; height: 25px; }.admin-welcome { padding: 17px; }.admin-welcome h2 { font-size: 17px; }.occupancy-ring { width: 68px; height: 68px; }.occupancy-ring > div { width: 54px; height: 54px; }.section-toolbar { align-items: flex-start; }.section-toolbar h2 { font-size: 17px; }.primary-action { padding: 9px 10px; white-space: nowrap; }.admin-today { display: none; }.panel-heading { flex-wrap: wrap; }.booking-chart { gap: 4px; }.admin-form-grid, .room-form { grid-template-columns: 1fr; }.admin-form-grid .admin-form-wide, .room-form-wide { grid-column: auto; } }
+@media (max-width: 420px) { .metrics-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }.metric-top { align-items: flex-start; }.admin-metric strong { font-size: 18px; }.section-toolbar { flex-direction: column; }.section-toolbar > :last-child { align-self: flex-start; }.chart-legend { flex-wrap: wrap; }.admin-top-actions { gap: 4px; } }
+.admin-data-table td del { margin-left: 4px; color: #9aa5b3; font-size: 9px; }
+.room-status-available { color: #16815d; background: #e8f7f0; }.room-status-occupied { color: #315fbd; background: #edf3ff; }.room-status-maintenance { color: #a66a10; background: #fff5df; }.room-status-cleaning { color: #7154b7; background: #f2edff; }.room-status-inactive { color: #7d8794; background: #eef0f3; }
+.room-images-control > small { display: block; margin-top: 5px; color: #8c98a8; font-size: 10px; }
+.room-image-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(82px, 1fr)); gap: 8px; margin-top: 10px; }
+.room-image-grid figure { position: relative; margin: 0; overflow: hidden; aspect-ratio: 1; border: 1px solid #e7ebf2; border-radius: 8px; background: #f4f6f8; }
+.room-image-grid img { width: 100%; height: 100%; object-fit: cover; }
+.room-image-grid button { position: absolute; right: 4px; bottom: 4px; padding: 4px 6px; border-radius: 5px; color: #fff; background: #202938c9; font-size: 9px; }
+.room-maintenance { display: grid; gap: 9px; padding: 12px; border: 1px solid #f0dcae; border-radius: 8px; background: #fffaf0; }
+.room-maintenance legend { padding: 0 5px; color: #8c641c; font-size: 10px; font-weight: 700; }
+.room-maintenance p { margin: 0; color: #8c98a8; font-size: 10px; }
+.room-maintenance > div { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+@media(max-width:760px){.booking-notification-popover{right:0}} */
+
+
+
+
+
+.admin-app {
+  --ad-ink: #132a38;
+  --ad-muted: #5d6c75;
+  --ad-surface: #f8f6f1;
+  --ad-card: #ffffff;
+  --ad-line: #e4ded3;
+  --ad-brand: #18394f;
+  --ad-brand-dark: #102534;
+  --ad-accent: #b98a4e;
+  --ad-green: #1f6b48;
+  --ad-amber: #9a6318;
+  --ad-violet: #5a448c;
+  --ad-rose: #a83243;
+  display: grid;
+  grid-template-columns: 268px minmax(0, 1fr);
+  min-height: 100vh;
+  background: var(--ad-surface);
+  color: var(--ad-ink);
+  overflow-x: clip;
+}
+
+/* Sidebar */
+.admin-app .admin-sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, #102534 0%, #18394f 100%);
+  color: #ffffff;
+  padding: 22px 16px;
+  box-sizing: border-box;
+  z-index: 40;
+}
+
+.admin-app .admin-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 4px 8px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.admin-app .brand-mark {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 11px;
+  background: var(--ad-accent);
+  color: #ffffff;
+  font-family: Georgia, serif;
+  font-size: 19px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.admin-app .admin-brand strong {
+  display: block;
+  font-family: Georgia, serif;
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.admin-app .admin-brand small {
+  display: block;
+  font-size: 9.5px;
+  letter-spacing: 0.16em;
+  color: #e6cb9f;
+  margin-top: 2px;
+}
+
+.admin-app .mobile-sidebar-close {
+  display: none;
+  margin-left: auto;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: transparent;
+  color: #ffffff;
+  place-items: center;
+  cursor: pointer;
+}
+
+.admin-app .sidebar-caption {
+  margin: 20px 10px 8px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.admin-app .admin-sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  overflow-y: auto;
+  padding-right: 2px;
+}
+
+.admin-app .admin-sidebar nav button {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  width: 100%;
+  padding: 10px 12px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 13.5px;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.18s ease, color 0.18s ease;
+}
+
+.admin-app .admin-sidebar nav button:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+}
+
+.admin-app .admin-sidebar nav button.active {
+  background: rgba(185, 138, 78, 0.22);
+  color: #ffffff;
+  font-weight: 600;
+  box-shadow: inset 3px 0 0 var(--ad-accent);
+}
+
+.admin-app .admin-sidebar nav button span {
+  flex: 1;
+}
+
+.admin-app .admin-sidebar nav button b {
+  padding: 2px 7px;
+  border-radius: 999px;
+  background: var(--ad-accent);
+  color: #ffffff;
+  font-size: 10.5px;
+  font-weight: 700;
+}
+
+.admin-app .sidebar-user {
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.admin-app .user-avatar {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.14);
+  color: #f3dec0;
+  font-size: 13px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.admin-app .sidebar-user > div {
+  min-width: 0;
+  flex: 1;
+}
+
+.admin-app .sidebar-user strong {
+  display: block;
+  font-size: 13px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.admin-app .sidebar-user small {
+  display: block;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.65);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.admin-app .sidebar-user > button {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: transparent;
+  color: rgba(255, 255, 255, 0.82);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.admin-app .sidebar-user > button:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+}
+
+/* Main Area & Topbar */
+.admin-app .admin-main {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-app .admin-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 25;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 16px clamp(18px, 3vw, 32px);
+  background: rgba(248, 246, 241, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--ad-line);
+}
+
+.admin-app .topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.admin-app .mobile-menu-btn {
+  display: none;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  border: 1px solid var(--ad-line);
+  background: var(--ad-card);
+  color: var(--ad-ink);
+  place-items: center;
+  cursor: pointer;
+}
+
+.admin-app .admin-topbar p {
+  margin: 0 0 2px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--ad-accent);
+}
+
+.admin-app .admin-topbar h1 {
+  margin: 0;
+  font-family: Georgia, serif;
+  font-size: clamp(22px, 2.4vw, 28px);
+  font-weight: 500;
+  color: var(--ad-ink);
+}
+
+.admin-app .admin-top-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.admin-app .admin-today {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 13px;
+  border-radius: 999px;
+  background: var(--ad-card);
+  border: 1px solid var(--ad-line);
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--ad-muted);
+}
+
+.admin-app .admin-today svg {
+  color: var(--ad-accent);
+}
+
+.admin-app .booking-notification-wrap {
+  position: relative;
+}
+
+.admin-app .booking-notification-button {
+  position: relative;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--ad-line);
+  background: var(--ad-card);
+  color: var(--ad-ink);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.admin-app .booking-notification-button b {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  border-radius: 999px;
+  background: var(--ad-accent);
+  color: #ffffff;
+  font-size: 10px;
+  display: grid;
+  place-items: center;
+}
+
+.admin-app .booking-notification-popover {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 10px);
+  width: min(360px, calc(100vw - 24px));
+  background: var(--ad-card);
+  border: 1px solid var(--ad-line);
+  border-radius: 16px;
+  box-shadow: 0 20px 44px rgba(19, 42, 56, 0.14);
+  padding: 14px;
+  z-index: 60;
+}
+
+.admin-app .notification-popover-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #f0ece3;
+}
+
+.admin-app .notification-popover-heading strong {
+  display: block;
+  font-size: 14px;
+}
+
+.admin-app .notification-popover-heading small {
+  font-size: 11.5px;
+  color: var(--ad-muted);
+}
+
+.admin-app .notification-popover-heading button {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  border: 1px solid var(--ad-line);
+  background: transparent;
+  color: var(--ad-ink);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.admin-app .notification-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.admin-app .notification-list article {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: var(--ad-surface);
+}
+
+.admin-app .notification-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--ad-brand);
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+
+.admin-app .notification-dot.food-dot {
+  background: var(--ad-accent);
+}
+
+.admin-app .notification-list article strong {
+  display: block;
+  font-size: 12.5px;
+}
+
+.admin-app .notification-list article small {
+  font-size: 11px;
+  color: var(--ad-muted);
+}
+
+.admin-app .notification-empty {
+  margin: 14px 0;
+  text-align: center;
+  font-size: 12.5px;
+  color: var(--ad-muted);
+}
+
+.admin-app .notification-view-all {
+  width: 100%;
+  margin-top: 8px;
+  padding: 8px 12px;
+  border-radius: 9px;
+  border: 0;
+  background: var(--ad-brand);
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.admin-app .refresh-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 15px;
+  border-radius: 999px;
+  border: 1px solid var(--ad-line);
+  background: var(--ad-card);
+  color: var(--ad-ink);
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.admin-app .refresh-button:hover {
+  border-color: var(--ad-brand);
+  background: #fdfcf9;
+}
+
+.admin-app .spin {
+  animation: adSpin 0.8s linear infinite;
+}
+
+@keyframes adSpin {
+  to { transform: rotate(360deg); }
+}
+
+/* Content Container */
+.admin-app .admin-content {
+  padding: clamp(20px, 3vw, 32px);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Welcome Banner */
+.admin-app .admin-welcome {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 24px 28px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #102534 0%, #18394f 70%, #234d68 100%);
+  color: #ffffff;
+}
+
+.admin-app .admin-welcome > div > span {
+  display: block;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: #e6cb9f;
+  margin-bottom: 6px;
+}
+
+.admin-app .admin-welcome h2 {
+  margin: 0;
+  font-family: Georgia, serif;
+  font-size: clamp(24px, 2.8vw, 32px);
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.admin-app .admin-welcome p {
+  margin: 6px 0 0;
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.admin-app .occupancy-ring {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: conic-gradient(var(--ad-accent) var(--occupancy, 0%), rgba(255, 255, 255, 0.14) 0);
+  display: grid;
+  place-items: center;
+  padding: 7px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.admin-app .occupancy-ring > div {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #122a3b;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin-app .occupancy-ring strong {
+  font-size: 17px;
+  line-height: 1.1;
+}
+
+.admin-app .occupancy-ring small {
+  font-size: 8.5px;
+  letter-spacing: 0.12em;
+  color: #e6cb9f;
+  margin-top: 2px;
+}
+
+/* Metrics Grid */
+.admin-app .metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.admin-app .admin-metric {
+  background: var(--ad-card);
+  border: 1px solid var(--ad-line);
+  border-radius: 16px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.admin-app .admin-metric:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(19, 42, 56, 0.06);
+}
+
+.admin-app .metric-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--ad-muted);
+}
+
+.admin-app .metric-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.admin-app .metric-blue .metric-icon { background: rgba(24, 57, 79, 0.1); color: var(--ad-brand); }
+.admin-app .metric-green .metric-icon { background: rgba(31, 107, 72, 0.12); color: var(--ad-green); }
+.admin-app .metric-amber .metric-icon { background: rgba(185, 138, 78, 0.16); color: var(--ad-amber); }
+.admin-app .metric-violet .metric-icon { background: rgba(90, 68, 140, 0.12); color: var(--ad-violet); }
+.admin-app .metric-rose .metric-icon { background: rgba(168, 50, 67, 0.12); color: var(--ad-rose); }
+
+.admin-app .admin-metric strong {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ad-ink);
+}
+
+.admin-app .admin-metric small {
+  font-size: 11px;
+  color: var(--ad-muted);
+}
+
+/* Charts */
+.admin-app .admin-chart-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.admin-app .admin-panel {
+  background: var(--ad-card);
+  border: 1px solid var(--ad-line);
+  border-radius: 18px;
+  padding: 22px;
+}
+
+.admin-app .panel-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.admin-app .panel-heading span {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--ad-accent);
+  margin-bottom: 3px;
+}
+
+.admin-app .panel-heading h3 {
+  margin: 0;
+  font-family: Georgia, serif;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.admin-app .panel-heading > small {
+  font-size: 12px;
+  color: var(--ad-muted);
+}
+
+.admin-app .chart-legend {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11.5px;
+  color: var(--ad-muted);
+}
+
+.admin-app .chart-legend i,
+.admin-app .booking-bars i {
+  display: inline-block;
+  border-radius: 999px;
+}
+
+.admin-app .chart-legend i {
+  width: 8px;
+  height: 8px;
+  margin-right: -4px;
+}
+
+.admin-app .bar-booked { background: var(--ad-brand); }
+.admin-app .bar-completed { background: var(--ad-green); }
+.admin-app .bar-cancelled { background: var(--ad-accent); }
+
+.admin-app .line-chart {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.admin-app .chart-gridline {
+  stroke: #ece7dc;
+  stroke-dasharray: 4 4;
+}
+
+.admin-app .chart-area {
+  fill: rgba(24, 57, 79, 0.08);
+}
+
+.admin-app .chart-line {
+  fill: none;
+  stroke: var(--ad-brand);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.admin-app .chart-point {
+  fill: var(--ad-accent);
+  stroke: #ffffff;
+  stroke-width: 1.5;
+}
+
+.admin-app .chart-x-labels {
+  display: flex;
+  justify-content: space-between;
+  gap: 6px;
+  margin-top: 8px;
+  font-size: 10.5px;
+  color: var(--ad-muted);
+}
+
+.admin-app .booking-chart {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(34px, 1fr));
+  align-items: end;
+  gap: 10px;
+  height: 210px;
+  padding-top: 12px;
+}
+
+.admin-app .booking-chart-month {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.admin-app .booking-bars {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 3px;
+}
+
+.admin-app .booking-bars i {
+  width: 6px;
+  min-height: 3px;
+}
+
+.admin-app .booking-chart-month small {
+  font-size: 10.5px;
+  color: var(--ad-muted);
+}
+
+/* Toolbars & Actions */
+.admin-app .section-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.admin-app .section-toolbar h2 {
+  margin: 0;
+  font-family: Georgia, serif;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.admin-app .section-toolbar p {
+  margin: 4px 0 0;
+  font-size: 13.5px;
+  color: var(--ad-muted);
+}
+
+.admin-app .primary-action,
+.admin-app .text-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.admin-app .primary-action {
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 0;
+  background: var(--ad-brand);
+  color: #ffffff;
+  transition: background 0.2s ease;
+}
+
+.admin-app .primary-action:hover {
+  background: var(--ad-brand-dark);
+}
+
+.admin-app .text-action {
+  border: 0;
+  background: transparent;
+  color: var(--ad-brand);
+  padding: 0;
+}
+
+.admin-app .text-action:hover {
+  color: var(--ad-accent);
+}
+
+.admin-app .table-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.admin-app .table-toolbar label {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  width: min(340px, 100%);
+  padding: 9px 14px;
+  border-radius: 999px;
+  background: var(--ad-card);
+  border: 1px solid var(--ad-line);
+  color: var(--ad-muted);
+}
+
+.admin-app .table-toolbar input {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  color: var(--ad-ink);
+  font-size: 13.5px;
+  outline: none;
+}
+
+.admin-app .table-toolbar > span,
+.admin-app .count-chip {
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--ad-card);
+  border: 1px solid var(--ad-line);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ad-muted);
+}
+
+/* Data Table */
+.admin-app .admin-table-wrap {
+  background: var(--ad-card);
+  border: 1px solid var(--ad-line);
+  border-radius: 18px;
+  overflow-x: auto;
+}
+
+.admin-app .admin-data-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.admin-app .admin-data-table th {
+  padding: 13px 16px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ad-muted);
+  background: #faf8f4;
+  border-bottom: 1px solid var(--ad-line);
+}
+
+.admin-app .admin-data-table td {
+  padding: 14px 16px;
+  font-size: 13.5px;
+  border-bottom: 1px solid #f1ece2;
+  vertical-align: middle;
+}
+
+.admin-app .admin-data-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.admin-app .admin-data-table tbody tr:hover td {
+  background: #fcfbf8;
+}
+
+.admin-app .property-cell strong {
+  display: block;
+  font-size: 14px;
+  color: var(--ad-ink);
+}
+
+.admin-app .property-cell small {
+  display: block;
+  font-size: 12px;
+  color: var(--ad-muted);
+  margin-top: 2px;
+}
+
+.admin-app .table-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.admin-app .icon-action {
+  padding: 6px 11px;
+  border-radius: 8px;
+  border: 1px solid var(--ad-line);
+  background: var(--ad-card);
+  color: var(--ad-ink);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.admin-app .icon-action:hover {
+  border-color: var(--ad-brand);
+}
+
+.admin-app .icon-action.danger {
+  color: var(--ad-rose);
+  border-color: rgba(168, 50, 67, 0.25);
+}
+
+.admin-app .icon-action.danger:hover {
+  background: rgba(168, 50, 67, 0.08);
+}
+
+.admin-app .table-empty {
+  text-align: center;
+  padding: 32px 16px;
+  color: var(--ad-muted);
+}
+
+.admin-app .status-pill {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11.5px;
+  font-weight: 600;
+  text-transform: capitalize;
+  background: #efeae0;
+  color: var(--ad-ink);
+}
+
+.admin-app .status-confirmed,
+.admin-app .status-completed,
+.admin-app .room-status-available {
+  background: rgba(31, 107, 72, 0.12);
+  color: var(--ad-green);
+}
+
+.admin-app .status-pending,
+.admin-app .room-status-occupied {
+  background: rgba(185, 138, 78, 0.18);
+  color: var(--ad-amber);
+}
+
+.admin-app .status-cancelled {
+  background: rgba(168, 50, 67, 0.12);
+  color: var(--ad-rose);
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .admin-app .metrics-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 960px) {
+  .admin-app {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-app .admin-sidebar-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(9, 20, 29, 0.52);
+    z-index: 45;
+  }
+
+  .admin-app .admin-sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 272px;
+    transform: translateX(-100%);
+    transition: transform 0.24s ease;
+    z-index: 50;
+  }
+
+  .admin-app .admin-sidebar.is-open {
+    transform: translateX(0);
+  }
+
+  .admin-app .mobile-sidebar-close,
+  .admin-app .mobile-menu-btn {
+    display: grid;
+  }
+
+  .admin-app .admin-chart-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .admin-app .metrics-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .admin-app .admin-today {
+    display: none;
+  }
+}

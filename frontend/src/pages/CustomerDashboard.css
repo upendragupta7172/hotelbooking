@@ -1,0 +1,721 @@
+.customer-account-page {
+  --cd-ink: #132a38;
+  --cd-muted: #5d6c75;
+  --cd-surface: #f8f6f1;
+  --cd-card: #ffffff;
+  --cd-line: #e4ded3;
+  --cd-brand: #18394f;
+  --cd-brand-dark: #102534;
+  --cd-accent: #b98a4e;
+  --cd-green: #1f6b48;
+  --cd-amber: #9a6318;
+  --cd-rose: #a83243;
+  min-height: 100vh;
+  background: var(--cd-surface);
+  color: var(--cd-ink);
+  padding: clamp(20px, 2.5vw, 32px) clamp(16px, 3vw, 32px) 56px;
+  box-sizing: border-box;
+  overflow-x: clip;
+}
+
+.customer-account-page * {
+  box-sizing: border-box;
+}
+
+.customer-account-page .account-shell {
+  width: min(1280px, 100%);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: 268px minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+/* Dark Navy Sidebar (Admin Style) */
+.customer-account-page .account-sidebar {
+  position: sticky;
+  top: 24px;
+  background: linear-gradient(180deg, #102534 0%, #18394f 100%);
+  color: #ffffff;
+  border-radius: 20px;
+  padding: 18px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 16px 36px rgba(16, 37, 52, 0.14);
+}
+
+.customer-account-page .account-brand-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 6px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.customer-account-page .account-brand-mark {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: var(--cd-accent);
+  color: #ffffff;
+  font-family: Georgia, serif;
+  font-size: 17px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.customer-account-page .account-brand-head strong {
+  display: block;
+  font-family: Georgia, serif;
+  font-size: 15.5px;
+  font-weight: 500;
+}
+
+.customer-account-page .account-brand-head small {
+  display: block;
+  font-size: 8.5px;
+  letter-spacing: 0.16em;
+  color: #e6cb9f;
+}
+
+.customer-account-page .account-identity {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.customer-account-page .account-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(185, 138, 78, 0.25);
+  color: #f3dec0;
+  display: grid;
+  place-items: center;
+  font-size: 13.5px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.customer-account-page .account-identity > div {
+  min-width: 0;
+}
+
+.customer-account-page .account-identity strong {
+  display: block;
+  font-size: 13px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.customer-account-page .account-identity span {
+  display: block;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.68);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.customer-account-page .account-sidebar-caption {
+  margin: 2px 8px -6px;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.customer-account-page .account-sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.customer-account-page .account-sidebar nav button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 9px 12px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 13px;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.18s ease, color 0.18s ease;
+}
+
+.customer-account-page .account-sidebar nav button:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+}
+
+.customer-account-page .account-sidebar nav button.active {
+  background: rgba(185, 138, 78, 0.22);
+  color: #ffffff;
+  font-weight: 600;
+  box-shadow: inset 3px 0 0 var(--cd-accent);
+}
+
+.customer-account-page .account-sidebar nav button > span:first-of-type {
+  flex: 1;
+}
+
+.customer-account-page .account-nav-count {
+  padding: 2px 7px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  color: #f3dec0;
+  font-size: 10.5px;
+  font-weight: 700;
+}
+
+.customer-account-page .account-sidebar-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 9px 11px;
+  border-radius: 11px;
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.customer-account-page .account-sidebar-note svg {
+  color: #e6cb9f;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.customer-account-page .account-signout {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 9px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.customer-account-page .account-signout:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+/* Main Content */
+.customer-account-page .account-main {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.customer-account-page .account-welcome {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 18px;
+  padding: 22px 26px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #102534 0%, #18394f 68%, #234d68 100%);
+  color: #ffffff;
+}
+
+.customer-account-page .eyebrow {
+  margin: 0 0 6px;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--cd-accent);
+}
+
+.customer-account-page .account-welcome .eyebrow {
+  color: #e6cb9f;
+}
+
+.customer-account-page .account-welcome h1 {
+  margin: 0;
+  font-family: Georgia, serif;
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 500;
+  line-height: 1.12;
+  color: #ffffff;
+}
+
+.customer-account-page .account-welcome p:last-child {
+  margin: 6px 0 0;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.customer-account-page .account-outline-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: #ffffff;
+  color: var(--cd-ink);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* Notice */
+.customer-account-page .account-notice {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 13.5px;
+  font-weight: 500;
+}
+
+.customer-account-page .account-notice.success {
+  background: #eaf5ee;
+  border: 1px solid #b9dec6;
+  color: #16532d;
+}
+
+.customer-account-page .account-notice.error {
+  background: #fdecec;
+  border: 1px solid #f3c2c2;
+  color: #9b1c1c;
+}
+
+/* Section Headings & Stats */
+.customer-account-page .account-section-heading,
+.customer-account-page .account-list-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.customer-account-page h2 {
+  margin: 0;
+  font-family: Georgia, serif;
+  font-size: clamp(22px, 2.4vw, 28px);
+  font-weight: 500;
+  color: var(--cd-ink);
+}
+
+.customer-account-page .account-subtitle,
+.customer-account-page .account-list-heading p {
+  margin: 4px 0 0;
+  font-size: 13.5px;
+  color: var(--cd-muted);
+}
+
+.customer-account-page .account-list-heading button {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border: 0;
+  background: transparent;
+  color: var(--cd-brand);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+}
+
+.customer-account-page .account-list-heading button:hover {
+  color: var(--cd-accent);
+}
+
+.customer-account-page .account-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.customer-account-page .stat-card {
+  background: var(--cd-card);
+  border: 1px solid var(--cd-line);
+  border-radius: 16px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.customer-account-page .stat-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.customer-account-page .stat-top small {
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--cd-muted);
+}
+
+.customer-account-page .stat-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+}
+
+.customer-account-page .tone-blue .stat-icon { background: rgba(24, 57, 79, 0.1); color: var(--cd-brand); }
+.customer-account-page .tone-amber .stat-icon { background: rgba(185, 138, 78, 0.16); color: var(--cd-amber); }
+.customer-account-page .tone-rose .stat-icon { background: rgba(168, 50, 67, 0.12); color: var(--cd-rose); }
+.customer-account-page .tone-green .stat-icon { background: rgba(31, 107, 72, 0.12); color: var(--cd-green); }
+
+.customer-account-page .stat-card strong {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--cd-ink);
+}
+
+/* Bookings List */
+.customer-account-page .account-booking-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.customer-account-page .account-booking {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  background: var(--cd-card);
+  border: 1px solid var(--cd-line);
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.customer-account-page .account-booking-image,
+.customer-account-page .account-booking-placeholder {
+  width: 100%;
+  height: 100%;
+  min-height: 150px;
+  object-fit: cover;
+}
+
+.customer-account-page .account-booking-placeholder {
+  display: grid;
+  place-items: center;
+  background: var(--cd-surface);
+  color: var(--cd-muted);
+}
+
+.customer-account-page .account-booking-content {
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+}
+
+.customer-account-page .account-booking-title {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.customer-account-page .account-booking-ref {
+  display: block;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--cd-accent);
+  margin-bottom: 3px;
+}
+
+.customer-account-page .account-booking-title h3 {
+  margin: 0;
+  font-family: Georgia, serif;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.customer-account-page .account-status {
+  padding: 4px 11px;
+  border-radius: 999px;
+  font-size: 11.5px;
+  font-weight: 600;
+  background: #efeae0;
+  color: var(--cd-ink);
+  white-space: nowrap;
+}
+
+.customer-account-page .account-status.status-confirmed,
+.customer-account-page .account-status.status-checked-in,
+.customer-account-page .account-status.status-completed,
+.customer-account-page .account-status.status-checked-out {
+  background: rgba(31, 107, 72, 0.12);
+  color: var(--cd-green);
+}
+
+.customer-account-page .account-status.status-pending {
+  background: rgba(185, 138, 78, 0.18);
+  color: var(--cd-amber);
+}
+
+.customer-account-page .account-status.status-cancelled {
+  background: rgba(168, 50, 67, 0.12);
+  color: var(--cd-rose);
+}
+
+.customer-account-page .account-booking-location {
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--cd-muted);
+}
+
+.customer-account-page .account-booking-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  font-size: 13px;
+  color: var(--cd-ink);
+}
+
+.customer-account-page .account-booking-meta > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.customer-account-page .account-payment-state {
+  color: var(--cd-muted);
+  font-weight: 500;
+}
+
+.customer-account-page .account-booking-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  padding-top: 4px;
+}
+
+.customer-account-page .account-cancel-booking,
+.customer-account-page .account-room-service,
+.customer-account-page .account-review-button {
+  padding: 7px 14px;
+  border-radius: 9px;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.customer-account-page .account-cancel-booking {
+  border: 1px solid rgba(168, 50, 67, 0.3);
+  background: rgba(168, 50, 67, 0.06);
+  color: var(--cd-rose);
+}
+
+.customer-account-page .account-room-service {
+  border: 0;
+  background: var(--cd-brand);
+  color: #ffffff;
+}
+
+.customer-account-page .account-review-button {
+  border: 1px solid var(--cd-line);
+  background: var(--cd-surface);
+  color: var(--cd-ink);
+}
+
+.customer-account-page .account-review-submitted {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--cd-green);
+}
+
+/* Forms & Empty State */
+.customer-account-page .account-edit-form {
+  background: var(--cd-card);
+  border: 1px solid var(--cd-line);
+  border-radius: 18px;
+  padding: 24px;
+  max-width: 540px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.customer-account-page .account-edit-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.customer-account-page .account-edit-form label span {
+  font-weight: 400;
+  color: var(--cd-muted);
+}
+
+.customer-account-page .account-edit-form input {
+  width: 100%;
+  padding: 11px 13px;
+  border-radius: 10px;
+  border: 1px solid #d5cec0;
+  background: var(--cd-surface);
+  color: var(--cd-ink);
+  font-size: 14px;
+}
+
+.customer-account-page .account-primary-button {
+  align-self: flex-start;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 0;
+  background: var(--cd-brand);
+  color: #ffffff;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.customer-account-page .account-primary-button:hover:not(:disabled) {
+  background: var(--cd-brand-dark);
+}
+
+.customer-account-page .account-empty,
+.customer-account-page .account-loading {
+  background: var(--cd-card);
+  border: 1px solid var(--cd-line);
+  border-radius: 18px;
+  padding: 40px 20px;
+  text-align: center;
+  color: var(--cd-muted);
+}
+
+.customer-account-page .account-empty span {
+  display: inline-grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--cd-surface);
+  color: var(--cd-accent);
+  margin-bottom: 10px;
+}
+
+.customer-account-page .account-empty h3 {
+  margin: 0;
+  font-family: Georgia, serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--cd-ink);
+}
+
+.customer-account-page .account-empty p {
+  margin: 6px 0 14px;
+  font-size: 13.5px;
+}
+
+.customer-account-page .account-inline-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--cd-brand);
+  font-size: 13.5px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* Review Modal Form */
+.account-review-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.account-review-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.account-review-form select,
+.account-review-form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #d5cec0;
+  font-family: inherit;
+  font-size: 13.5px;
+}
+
+.account-review-error {
+  margin: 0;
+  color: #9b1c1c;
+  font-size: 12.5px;
+}
+
+.account-review-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.account-review-actions button:first-child {
+  padding: 9px 16px;
+  border-radius: 10px;
+  border: 1px solid #e4ded3;
+  background: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+  .customer-account-page .account-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .customer-account-page .account-sidebar {
+    position: static;
+  }
+
+  .customer-account-page .account-stat-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .customer-account-page .account-booking {
+    grid-template-columns: 1fr;
+  }
+
+  .customer-account-page .account-booking-image,
+  .customer-account-page .account-booking-placeholder {
+    height: 170px;
+  }
+}

@@ -1,0 +1,97 @@
+/* src/pages/AdminAuth.css */
+/* Premium admin auth styling – glassmorphism, subtle gradients, smooth focus animations */
+
+.admin-auth-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  background: linear-gradient(135deg, #18394f, #102b3d);
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  padding: 2rem;
+}
+
+.admin-auth-title {
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.admin-auth-form {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  border-radius: 12px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.admin-auth-form label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
+  color: #e0e0e0;
+}
+
+.admin-auth-form input {
+  margin-top: 0.4rem;
+  padding: 0.6rem 0.8rem;
+  border: none;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+  transition: background 0.3s ease;
+}
+
+.admin-auth-form input:focus {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.primary-btn {
+  margin-top: 0.5rem;
+  padding: 0.8rem 1.2rem;
+  background: linear-gradient(135deg, #b98a4e, #c9a46e);
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.primary-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.primary-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(185, 138, 78, 0.32);
+}
+
+.error-msg {
+  background: rgba(255, 0, 0, 0.2);
+  color: #ffdddd;
+  padding: 0.6rem;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.admin-auth-switch {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #cfd8dc;
+}
+
+.admin-auth-switch a {
+  color: #d5b27b;
+  text-decoration: underline;
+}

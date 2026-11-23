@@ -1,0 +1,337 @@
+.room-service-modal {
+  --rs-ink: #132a38;
+  --rs-muted: #5d6c75;
+  --rs-surface: #f8f6f1;
+  --rs-card: #ffffff;
+  --rs-line: #e4ded3;
+  --rs-brand: #18394f;
+  --rs-accent: #b98a4e;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 100%;
+  overflow-x: hidden;
+  color: var(--rs-ink);
+  box-sizing: border-box;
+}
+
+.room-service-modal * {
+  box-sizing: border-box;
+}
+
+.room-service-modal .room-service-context {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--rs-muted);
+}
+
+.room-service-modal .room-service-message {
+  margin: 0;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.room-service-modal .room-service-message.error {
+  background: #fdecec;
+  border: 1px solid #f3c2c2;
+  color: #9b1c1c;
+}
+
+.room-service-modal .room-service-message.success {
+  background: #eaf5ee;
+  border: 1px solid #b9dec6;
+  color: #16532d;
+}
+
+.room-service-modal .room-service-empty {
+  margin: 0;
+  padding: 28px 16px;
+  text-align: center;
+  border: 1px dashed var(--rs-line);
+  border-radius: 12px;
+  background: var(--rs-surface);
+  color: var(--rs-muted);
+  font-size: 14px;
+}
+
+.room-service-modal .room-service-dishes {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 360px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 2px;
+}
+
+.room-service-modal .room-service-dish {
+  display: grid;
+  grid-template-columns: 76px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 14px;
+  padding: 12px;
+  border-radius: 14px;
+  border: 1px solid var(--rs-line);
+  background: var(--rs-card);
+  min-width: 0;
+}
+
+.room-service-modal .room-service-dish img,
+.room-service-modal .room-service-dish-placeholder {
+  width: 76px;
+  height: 76px;
+  border-radius: 10px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.room-service-modal .room-service-dish-placeholder {
+  display: grid;
+  place-items: center;
+  background: var(--rs-surface);
+  border: 1px solid var(--rs-line);
+  color: var(--rs-muted);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.room-service-modal .room-service-dish-info {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.room-service-modal .food-category {
+  align-self: flex-start;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 10.5px;
+  font-weight: 700;
+}
+
+.room-service-modal .food-category.veg {
+  background: #e7f5ec;
+  color: #166534;
+}
+
+.room-service-modal .food-category.nonveg {
+  background: #fef2f2;
+  color: #b91c1c;
+}
+
+.room-service-modal .room-service-dish-info strong {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--rs-ink);
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+.room-service-modal .room-service-dish-info p {
+  margin: 0;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--rs-muted);
+  overflow-wrap: anywhere;
+}
+
+.room-service-modal .room-service-dish-info b {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--rs-ink);
+  margin-top: 2px;
+}
+
+.room-service-modal .food-quantity {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px;
+  border-radius: 999px;
+  border: 1px solid var(--rs-line);
+  background: var(--rs-surface);
+  flex-shrink: 0;
+}
+
+.room-service-modal .food-quantity button {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--rs-line);
+  background: var(--rs-card);
+  color: var(--rs-ink);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.room-service-modal .food-quantity button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.room-service-modal .food-quantity span {
+  min-width: 20px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* Order History */
+.room-service-modal .room-service-history {
+  border-top: 1px solid var(--rs-line);
+  padding-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.room-service-modal .room-service-history h3 {
+  margin: 0 0 4px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.room-service-modal .room-service-history article {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: var(--rs-surface);
+  border: 1px solid var(--rs-line);
+}
+
+.room-service-modal .room-service-history article > div {
+  min-width: 0;
+}
+
+.room-service-modal .room-service-history article strong {
+  display: block;
+  font-size: 13px;
+}
+
+.room-service-modal .room-service-history article small {
+  font-size: 11.5px;
+  color: var(--rs-muted);
+}
+
+.room-service-modal .room-service-history article b {
+  font-size: 13.5px;
+  white-space: nowrap;
+}
+
+/* Checkout Bar */
+.room-service-modal .room-service-checkout {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--rs-line);
+}
+
+.room-service-modal .room-service-payment-label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1 1 220px;
+  min-width: 0;
+}
+
+.room-service-modal .room-service-payment-label span {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--rs-muted);
+}
+
+.room-service-modal .room-service-payment-label select {
+  width: 100%;
+  height: 40px;
+  padding: 0 12px;
+  border-radius: 10px;
+  border: 1px solid #d5cec0;
+  background: var(--rs-surface);
+  color: var(--rs-ink);
+  font-size: 13.5px;
+  font-weight: 500;
+}
+
+.room-service-modal .room-service-checkout-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-left: auto;
+}
+
+.room-service-modal .room-service-total {
+  display: flex;
+  flex-direction: column;
+}
+
+.room-service-modal .room-service-total span {
+  font-size: 11px;
+  color: var(--rs-muted);
+}
+
+.room-service-modal .room-service-total strong {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--rs-ink);
+}
+
+.room-service-modal .room-service-submit {
+  height: 40px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--rs-brand);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.room-service-modal .room-service-submit:hover:not(:disabled) {
+  background: #102534;
+}
+
+.room-service-modal .room-service-submit:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+  .room-service-modal .room-service-dish {
+    grid-template-columns: 64px minmax(0, 1fr);
+  }
+
+  .room-service-modal .room-service-dish img,
+  .room-service-modal .room-service-dish-placeholder {
+    width: 64px;
+    height: 64px;
+  }
+
+  .room-service-modal .food-quantity {
+    grid-column: 1 / -1;
+    justify-self: flex-end;
+  }
+
+  .room-service-modal .room-service-checkout-actions {
+    width: 100%;
+    justify-content: space-between;
+    margin-left: 0;
+  }
+}
