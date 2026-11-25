@@ -7090,3 +7090,112 @@ select {
     display: none;
   }
 }
+
+@media (max-width: 640px) {
+  .home-main .home-hero {
+    display: flex;
+    height: auto;
+    min-height: 660px;
+    margin: 0 0 34px;
+    padding: 96px 16px 20px;
+    justify-content: flex-end;
+    gap: 0;
+  }
+
+  .home-main .hero-copy {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    margin: 0 auto 24px;
+    transform: none;
+  }
+
+  .home-main .hero-copy .hero-eyebrow {
+    max-width: 100%;
+    font-size: 9px;
+    letter-spacing: .12em;
+  }
+
+  .home-main .home-hero .hero-copy h1 {
+    max-width: 10ch;
+    font-size: clamp(44px, 12.4vw, 62px);
+    letter-spacing: -1.5px;
+    line-height: 1.02;
+  }
+
+  .home-main .hero-description {
+    max-width: 38ch;
+    margin: 14px 0 18px;
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  .home-main .hero-link {
+    margin-top: 0;
+    font-size: 13px;
+  }
+
+  .home-main .hero-caption,
+  .home-main .hero-index {
+    display: none;
+  }
+
+  .home-main .home-search-wrap {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .home-main .booking-search-v2 {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    min-width: 0;
+    padding: 9px;
+  }
+
+  .home-main .booking-search-v2 .search-field {
+    min-width: 0;
+    min-height: 62px;
+    padding: 8px 7px;
+  }
+
+  .home-main .booking-search-v2 .field-label {
+    font-size: 8px;
+    letter-spacing: .1em;
+  }
+
+  .home-main .booking-search-v2 .field-control,
+  .home-main .booking-search-v2 .field-control select,
+  .home-main .booking-search-v2 .search-field input,
+  .home-main .booking-search-v2 .guest-toggle {
+    min-width: 0;
+    font-size: 11px;
+  }
+
+  .home-main .booking-search-v2 .search-submit {
+    grid-column: 1 / -1;
+    width: 100%;
+    min-width: 0;
+    min-height: 44px;
+    margin: 9px 0 0;
+  }
+}
+
+@media (max-width: 380px) {
+  .home-main .home-hero {
+    padding-inline: 12px;
+  }
+
+  .home-main .home-hero .hero-copy h1 {
+    font-size: clamp(40px, 11.8vw, 48px);
+  }
+
+  .home-main .booking-search-v2 .search-field input,
+  .home-main .booking-search-v2 .field-control select,
+  .home-main .booking-search-v2 .guest-toggle {
+    font-size: 10px;
+  }
+}
