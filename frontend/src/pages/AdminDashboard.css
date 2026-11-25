@@ -1146,3 +1146,118 @@
     display: none;
   }
 }
+
+@media (max-width: 760px) {
+  .admin-app .admin-topbar {
+    gap: 10px;
+    padding: 12px 14px;
+  }
+
+  .admin-app .topbar-left {
+    min-width: 0;
+    flex: 1 1 auto;
+  }
+
+  .admin-app .admin-topbar h1 {
+    overflow-wrap: anywhere;
+    font-size: clamp(18px, 5vw, 23px);
+  }
+
+  .admin-app .admin-top-actions {
+    flex: 0 0 auto;
+  }
+
+  .admin-app .section-toolbar {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .admin-app .section-toolbar > div {
+    min-width: 0;
+  }
+
+  .admin-app .section-toolbar h2 {
+    font-size: clamp(18px, 5vw, 22px);
+  }
+
+  .admin-app .primary-action {
+    max-width: 100%;
+    white-space: normal;
+  }
+
+  .admin-app .table-toolbar {
+    align-items: stretch;
+  }
+
+  .admin-app .table-toolbar label {
+    width: 100%;
+  }
+
+  .admin-app .admin-table-wrap {
+    max-width: 100%;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .admin-app .admin-data-table {
+    min-width: 720px;
+    white-space: nowrap;
+  }
+
+  .admin-app .admin-form-grid,
+  .admin-app .room-form,
+  .admin-app .room-package-card {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .admin-app .admin-form-grid .admin-form-wide,
+  .admin-app .room-form-wide,
+  .admin-app .room-package-heading,
+  .admin-app .room-package-card > label:nth-child(4),
+  .admin-app .package-inclusions {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 420px) {
+  .admin-app .admin-content {
+    padding-inline: 10px;
+  }
+
+  .admin-app .admin-panel {
+    padding: 14px 12px;
+  }
+
+  .admin-app .admin-welcome {
+    align-items: flex-start;
+    gap: 14px;
+    padding: 15px;
+  }
+
+  .admin-app .admin-welcome > div:first-child {
+    min-width: 0;
+  }
+
+  .admin-app .occupancy-ring {
+    width: 60px;
+    height: 60px;
+    flex: 0 0 60px;
+  }
+
+  .admin-app .occupancy-ring > div {
+    width: 48px;
+    height: 48px;
+  }
+
+  .admin-app .chart-legend {
+    flex-wrap: wrap;
+    gap: 6px 10px;
+  }
+
+  .admin-app .modal-content {
+    width: 100%;
+    max-height: 92svh;
+    padding: 18px 14px;
+  }
+}

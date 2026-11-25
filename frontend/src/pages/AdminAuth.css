@@ -95,3 +95,21 @@
   color: #d5b27b;
   text-decoration: underline;
 }
+
+@media (max-width: 600px) {
+  .admin-auth-page {
+    min-height: 100svh;
+    padding: 20px 14px;
+  }
+
+  .admin-auth-title {
+    font-size: clamp(1.45rem, 7vw, 1.8rem);
+    text-align: center;
+  }
+
+  .admin-auth-form {
+    box-sizing: border-box;
+    max-width: 420px;
+    padding: 22px 18px;
+  }
+}

@@ -710,6 +710,52 @@
 }
 
 @media (max-width: 640px) {
+  .customer-account-page {
+    padding: 16px 12px 36px;
+  }
+
+  .customer-account-page .account-sidebar {
+    padding: 14px 12px;
+    gap: 10px;
+  }
+
+  .customer-account-page .account-sidebar nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .customer-account-page .account-sidebar nav button {
+    min-width: 0;
+    padding: 10px 8px;
+    font-size: 12px;
+  }
+
+  .customer-account-page .account-sidebar nav button > span:first-of-type {
+    overflow-wrap: anywhere;
+  }
+
+  .customer-account-page .account-main,
+  .customer-account-page .account-panel {
+    min-width: 0;
+  }
+
+  .customer-account-page .account-booking-content {
+    padding: 16px;
+  }
+
+  .customer-account-page .account-booking-title {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .customer-account-page .account-booking-meta,
+  .customer-account-page .account-booking-actions,
+  .customer-account-page .account-review-actions {
+    flex-wrap: wrap;
+  }
+
   .customer-account-page .account-booking {
     grid-template-columns: 1fr;
   }
@@ -717,5 +763,19 @@
   .customer-account-page .account-booking-image,
   .customer-account-page .account-booking-placeholder {
     height: 170px;
+  }
+
+  .customer-account-page .account-stat-grid {
+    gap: 10px;
+  }
+}
+
+@media (max-width: 380px) {
+  .customer-account-page .account-sidebar nav {
+    grid-template-columns: 1fr;
+  }
+
+  .customer-account-page .account-stat-grid {
+    grid-template-columns: 1fr;
   }
 }
